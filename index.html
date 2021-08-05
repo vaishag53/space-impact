@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Space Impact | Home</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body  >
+    <!-- <div>
+        <div class="start" style="background-image: url(imgs/stars.png);background-size: contain; animation:stars 75s linear infinite;" id="over">
+            <div class="text ">
+                <span class="badge badge-pill badge-dark w-75 p-2 mt-4">Space Impact</span><br>
+                <a class="btn btn-danger mt-4 w-50" href="game.html">Start Game</a><br>
+                <a class="btn btn-danger mt-4 w-50" href="shop.html">Shop</a>
+                <a href="#" class="btn btn-danger w-50 mt-4">Rules</a><br>
+                <span style="font-size: 15px;">&copy;Space Impact 2020</span>
+            </div>
+        </div>
+    </div> -->
+    <div style="background-image: url('imgs/stars.png');background-size: contain; animation:stars 75s linear infinite;" id="home" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-sm text-center" role="content">
+			<div class="modal-content ">
+                <div class="modal-body">
+                    <span class="badge badge-pill badge-dark w-75 p-2 mt-4">Space Impact</span><br>
+                    <a class="btn btn-danger mt-4 w-50" href="game.html">Start Game</a><br>
+                    <a class="btn btn-danger mt-4 w-50" href="shop.html">Shop</a>
+                    <a href="info.html" class="btn btn-danger w-50 mt-4">Info</a><br>
+                    <span style="font-size: 15px;">&copy;Space Impact 2021</span>                    
+                </div>
+	        </div>
+		</div>
+	</div>
+    <script src="js/jq.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        //sessionStorage.clear();
+        let data = {'ships': [1],
+                    'colors': ['red'],
+                    'skills': [],
+                    'ship': 'imgs/ship-2.png',
+                    'bulletColor': 'red',
+                    'coins': 10000000,
+                    'beamCount':0,
+                    'shieldCount':0,
+                    'freezeCount':0,
+                    'invisibleCount':0,
+                    'doubleBullet':false,
+                    'bombCount':3,
+                    'invisibleTime':5000,
+                    'freezeTime':5000,
+                    'shieldTime':5000,
+                    'reverseTime':1,
+                    'reverseEnabled':false,
+                    'fuelConsumption':5,
+                    'coinUpgrade':1,
+                    'skillPoint':15
+                }
+        if(sessionStorage.getItem('data') === null)
+        {
+            sessionStorage.setItem('data',JSON.stringify(data));
+            // sessionStorage.setItem('ships',JSON.stringify([1]));
+            // sessionStorage.setItem('colors',JSON.stringify(['red']));
+            // sessionStorage.setItem('ship','imgs/ship-2.png');
+            // sessionStorage.setItem('bulletColor','red');
+            // sessionStorage.setItem('coins','0');
+            // sessionStorage.setItem('beamCount','0');
+            // sessionStorage.setItem('shieldCount','0');
+            // sessionStorage.setItem('freezeCount','0');
+            // sessionStorage.setItem('invisibleCount','0');
+            // sessionStorage.setItem('doubleBullet',false);
+            // sessionStorage.setItem('bombCount','3');
+        }
+        const home = document.getElementById('home');
+        home.style.display = 'block';
+        home.classList.add('show');
+    </script>
+    
+</body>
+</html>

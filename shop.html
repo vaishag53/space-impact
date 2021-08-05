@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Space Impact | Shop</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body >
+    <div id="success" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-sm" role="content">
+			<div class="modal-content ">
+	            <div class="modal-header" >
+	                <h6 class="modal-title">Bought Sucessfully</h6>
+	                <button type="button" class="close" data-dismiss="modal">&times;</button>
+	            </div>
+	        </div>
+		</div>
+	</div>
+    <div id="failure" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-sm" role="content">
+			<div class="modal-content ">
+	            <div class="modal-header" >
+	                <h6 class="modal-title">Not Enough Coins</h6>
+	                <button type="button" class="close" data-dismiss="modal">&times;</button>
+	            </div>
+	        </div>
+		</div>
+	</div>
+    <div id="used" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-sm" role="content">
+			<div class="modal-content ">
+	            <div class="modal-header" >
+	                <h6 class="modal-title">Selected Successfully</h6>
+	                <button type="button" class="close" data-dismiss="modal">&times;</button>
+	            </div>
+	        </div>
+		</div>
+	</div>
+    <!-- <div class="container"> -->
+        <div class="shop ">
+            <div class=" row ">
+                <div class=" col-3 p-3">
+                  <div class="side-nav nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-ship-tab" data-toggle="pill" href="#v-pills-ship" role="tab" aria-controls="v-pills-ship" aria-selected="true">Ship</a>
+                    <a class="nav-link" id="v-pills-guns-tab" data-toggle="pill" href="#v-pills-guns" role="tab" aria-controls="v-pills-guns" aria-selected="false">Guns</a>
+                    <a class="nav-link" id="v-pills-ability-tab" data-toggle="pill" href="#v-pills-ability" role="tab" aria-controls="v-pills-ability" aria-selected="false">Abilities</a>
+                    <div class="ml-5 badge badge-pill badge-secondary coins">
+                        <span><img class="coin-img" src="imgs/coin.png"></span>
+                        <span id="totalCoins" class="coin">0</span>
+                    </div>
+                    <a class="back-shop ml-5 btn btn-sm btn-warning" href="index.html">Back to Menu</a>
+                </div>
+                </div>
+                <div class="col-9">
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-ship" role="tabpanel" aria-labelledby="v-pills-ship-tab">
+                        <div class="p-3 row">
+                            <div class="col col-sm-4">
+                                <div class="card text-center">
+                                    <img class="card-img-top " src="imgs/ship-1.png" alt="">
+                                    <div class="card-body">
+                                        <h6>Falcon</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">10000</span></h6>
+                                        <button class="btn btn-sm btn-success" id="ship0" onclick="buy('ship',0,10000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="imgs/ship-2.png" alt="">
+                                    <div class="card-body">
+                                        <h6>X-wing</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">10000</span></h6>
+                                        <button class="btn btn-sm btn-success" id='ship1' onclick="buy('ship',1,10000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="imgs/ship-3.png" alt="">
+                                    <div class="card-body">
+                                        <h6>The Classic</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">10000</span></h6>
+                                        <button class="btn btn-sm btn-success" id='ship2' onclick="buy('ship',2,10000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 row">
+                            <div class="col">
+                                <div class="card text-center">
+                                    <img class="card-img-top " src="imgs/ship-4.png" alt="">
+                                    <div class="card-body">
+                                        <h6>The Ravager</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">10000</span></h6>
+                                        <button class="btn btn-sm btn-success" id='ship3' onclick="buy('ship',3,10000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="imgs/ship-5.png" alt="">
+                                    <div class="card-body">
+                                        <h6>Y-Wing</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">10000</span></h6>
+                                        <button class="btn btn-sm btn-success" id='ship4' onclick="buy('ship',4,10000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col ">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="imgs/ship-6.png" alt="">
+                                    <div class="card-body">
+                                        <h6>The Destroyer</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">10000</span></h6>
+                                        <button class="btn btn-sm btn-success" id='ship5' onclick="buy('ship',5,10000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-guns" role="tabpanel" aria-labelledby="v-pills-guns-tab">
+                        <div class="p-3 row">
+                            <div class="col col-sm-4">
+                                <div class="card text-center">
+                                    <img class="card-img-top " src="imgs/red-bullet.png">
+                                    <div class="card-body">
+                                        <h6>Red Bullet</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">500</span></h6>
+                                        <button class="btn btn-sm btn-success" id="red" onclick="buy('color','red',500)" >Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="imgs/green-bullet.png" >
+                                    <div class="card-body">
+                                        <h6>Green Bullet</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">500</span></h6>
+                                        <button class="btn btn-sm btn-success" id="green" onclick="buy('color','green',500)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="imgs/yellow-bullet.png" alt="">
+                                    <div class="card-body">
+                                        <h6>Yellow Bullet</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">500</span></h6>
+                                        <button class="btn btn-sm btn-success" id="yellow" onclick="buy('color','yellow',500)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 row">
+                            <div class="col-sm-4">
+                                <div class="card text-center">
+                                    <img class="card-img-top " src="imgs/red-bullet2.PNG" alt="">
+                                    <div class="card-body">
+                                        <h6>Two Bullets</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">100000</span></h6>
+                                        <button class="btn btn-sm btn-success" id="two" onclick="buy('two','two',100000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-ability" role="tabpanel" aria-labelledby="v-pills-ability-tab">
+                        <div class="p-3 row">
+                            <div class="col">
+                                <div class="card text-center">
+                                    <img class="card-img-top " src="imgs/abil-1.png" alt="">
+                                    <div class="card-body">
+                                        <h6>Shield</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">5000</span></h6>
+                                        <button class="btn btn-sm btn-success" onclick="buy('shieldCount','',5000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="imgs/abil-2.png" alt="">
+                                    <div class="card-body">
+                                        <h6>Laser Beam</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">5000</span></h6>
+                                        <button class="btn btn-sm btn-success" onclick="buy('beamCount','',5000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card text-center">
+                                    <img class="card-img-top" src="imgs/abil-3.png" alt="">
+                                    <div class="card-body">
+                                        <h6>Invisibility</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">5000</span></h6>
+                                        <button class="btn btn-sm btn-success" onclick="buy('invisibleCount','',5000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 row">
+                            <div class="col-sm-4">
+                                <div class="card text-center">
+                                    <img class="card-img-top " src="imgs/abil-4.png" alt="">
+                                    <div class="card-body">
+                                        <h6>Freeze</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">5000</span></h6>
+                                        <button class="btn btn-sm btn-success" onclick="buy('freezeCount','',5000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card text-center">
+                                    <img class="card-img-top " src="imgs/abil-5.png" alt="">
+                                    <div class="card-body">
+                                        <h6>Bomb</h6>
+                                        <h6><img class="coin-img" src="imgs/coin.png"><span class="coin">5000</span></h6>
+                                        <button class="btn btn-sm btn-success" onclick="buy('bombCount','',5000)">Buy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div> 
+    <script src="js/jq.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        const shipImgs = ['imgs/ship-1.png','imgs/ship-2.png','imgs/ship-3.png','imgs/ship-4.png','imgs/ship-5.png','imgs/ship-6.png'];
+        let data = JSON.parse(sessionStorage.getItem('data'));
+        window.addEventListener("load", () => {
+            let ships = data['ships'];
+            let colors = data['colors'];
+            //console.log(colors);
+            ships.forEach( (ship)=>{
+               let shipEle =  document.getElementById('ship'+ship);
+               //console.log(shipEle);
+               shipEle.classList.remove('btn-success');
+               shipEle.classList.add('btn-secondary');
+               shipEle.innerHTML = 'use';
+            });
+            colors.forEach( (color)=>{
+               let colorEle =  document.getElementById(color);
+              // console.log(colorEle);
+               colorEle.classList.remove('btn-success');
+               colorEle.classList.add('btn-secondary');
+               colorEle.innerHTML = 'use';
+            });
+            if(data['doubleBullet'] === 'true')
+            {
+                let doubleBulletEle = document.getElementById('two');
+                doubleBulletEle.classList.remove('btn-success');
+                doubleBulletEle.classList.add('btn-secondary');
+                doubleBulletEle.innerHTML = 'Owned';
+                doubleBulletEle.setAttribute('disabled',"");
+            }
+        });
+        const coinEle = document.getElementById('totalCoins');
+        let totalCoins = data['coins'];
+        console.log(totalCoins)
+        coinEle.innerHTML = totalCoins;
+        //console.log(totalCoins);
+        function buy(type,prod,price)
+        {
+            if(type == 'ship')
+            {
+                let ships = data['ships'];
+                //console.log(ships);
+                if(!ships.includes(prod))
+                {
+                   // console.log('inside first');
+                    if(totalCoins >= price)
+                    {
+                        $('#success').modal({backdrop:true});
+                        totalCoins -= price;
+                        let shipEle =  document.getElementById(type+prod);
+                        shipEle.classList.remove('btn-success');
+                        shipEle.classList.add('btn-secondary');
+                        shipEle.innerHTML = 'use';
+                        ships.push(prod);
+                        data['ships'] = ships;
+                        sessionStorage.setItem('data',JSON.stringify(data));
+                        //console.log('caling success');
+                    }
+                    else
+                    {
+                        $('#failure').modal({backdrop:true});
+                        //console.log('calling failure');
+                    }
+                }
+                else
+                {
+                    $('#used').modal({backdrop:true});
+                    data['ship'] = shipImgs[prod];
+                    sessionStorage.setItem('data',JSON.stringify(data));
+                    //console.log(sessionStorage.getItem('ship',shipImgs[prod]))
+                }
+            }
+            else if(type =='color')
+            {
+                let colors = data['colors'];
+                if(!colors.includes(prod))
+                {
+                    if(totalCoins >= price)
+                    {
+                        $('#success').modal({backdrop:true});
+                        totalCoins -= price;
+                        let colorEle =  document.getElementById(prod);
+                        colorEle.classList.remove('btn-success');
+                        colorEle.classList.add('btn-secondary');
+                        colorEle.innerHTML = 'use';
+                        colors.push(prod);
+                        data['colors'] = colors;
+                        sessionStorage.setItem('data',JSON.stringify(data));
+                    }
+                    else
+                    {
+                        $('#failure').modal({backdrop:true});
+                    }
+                }
+                else
+                {
+                    $('#used').modal({backdrop:true});
+                    data['bulletColor'] = prod;
+                    sessionStorage.setItem('data',JSON.stringify(data));
+                }
+            }
+            else if(type == 'two')
+            {
+                if(totalCoins >= price)
+                {
+                    let doubleBulletEle = document.getElementById('two');
+                    doubleBulletEle.classList.remove('btn-success');
+                    doubleBulletEle.classList.add('btn-secondary');
+                    doubleBulletEle.innerHTML = 'Owned';
+                    doubleBulletEle.setAttribute('disabled',"");
+                    data['doubleBullet'] = true;
+                    sessionStorage.setItem('data',JSON.stringify(data));
+                    $('#success').modal({backdrop:true});
+                    totalCoins -= price;
+                }
+                else
+                {
+                    $('#failure').modal({backdrop:true});
+                }
+            }
+            else{
+               if(totalCoins >= price)
+               {
+                    let c = parseInt(data[type]);
+                    c += 1;
+                    data[type] = c;
+                    sessionStorage.setItem('data',JSON.stringify(data));
+                    totalCoins -= price;
+                    $('#success').modal({backdrop:true});
+               }
+               else
+               $('#failure').modal({backdrop:true});
+            }
+           // console.log(type,prod,price);
+            coinEle.innerHTML = totalCoins;
+            
+        }
+    </script>
+</body>
+</html>

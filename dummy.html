@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video  style="display: none;" id = "video" src="vid/boss.mp4" width="500" height="500" autoplay loop></video>
+    <canvas id="id" style="background-color:black;"></canvas>
+</body>
+</html>
+
+<script>
+    const canv = document.getElementById('id');
+    const vid = document.getElementById('video'); 
+    canv.height = 500;
+    canv.width = 500;
+    const ctx = canv.getContext('2d');
+    vid.addEventListener("play",playvid);
+    class Enemy {
+    constructor(x,y,src,height,width,v,type)
+    {
+        this.x = x;
+        this.y = y;
+        this.height = height;
+        this.width = width;
+        this.img = src;
+        this.v = v;
+        this.canShoot = false;
+        this.backWard = false;
+        this.type = type;
+        if(type == 'ship' || type == "boss" || type == "al-2")
+        {    
+            this.canShoot = true;
+            //console.log("shootable added");
+        }
+    }
+    // shoot()
+    // {
+    //     if(this.canShoot)
+    //     {
+    //         enemy_bullets.push(new Bullet(this.x-10,this.y+40,10,3,'green',{x:-5,y:0}));
+    //        // enemyShoot.play();
+    //         if(this.type == 'ship')
+    //          setTimeout(()=>{
+    //              enemy_bullets.push(new Bullet(this.x-10,this.y+40,10,3,'green',{x:-5,y:0}));
+    //              //enemyShoot.play();
+    //          },1000);
+    //         //console.log("Shooted");
+    //     }
+
+    // }
+    update()
+    {
+        if(this.type == 'ship')
+        {
+            if(this.x < 300 && !this.backWard )
+            {
+                //this.x  = this.x + this.v.x;
+                this.backWard = true;
+            }
+            else if(this.x >= canv.width - 50 && this.backWard)
+            {
+                //this.x = this.x - this.v.x;
+                this.backWard = false;
+            }
+            else if(!this.backWard)
+            {
+                this.x = this.x - this.v.x;
+            }
+            else
+            {
+                this.x = this.x + this.v.x;
+            }
+            
+        }
+        else
+        {
+            this.x = this.x - this.v.x;
+        }
+        ctx.drawImage(this.img,this.x,this.y,this.width,this.height);
+    }
+}
+    // const vedio = Image();
+    // vedio.src = 'vid/boss.mp4';
+    var enemies = [];
+    var en1 = new Enemy(500,500,vid,100,100,{x:-1,y:0},'ship');
+    var en2 = new Enemy(500,400,vid,100,100,{x:-1,y:0},'ship');
+    enemies.push(en1,en2);
+    console.log(enemies);
+    function playvid()
+    {
+        enemies.forEach( (enemy,idx))
+        {  
+            //ctx.drawImage(enemy.img,0,0,100,100);
+            enemy.update();
+            // let frame =  ctx.getImageData(0,0,100,100);
+            // for(let i = 0; i < frame.data.length/4;i++)
+            // {
+            //     let r = frame.data[i * 4 + 0];
+            //     let g = frame.data[i * 4 + 1];
+            //     let b = frame.data[i * 4 + 2]; 
+            //     if(r > -100 && r < 150 && g > 70 && g < 300 && b > -30 && b < 80)
+            //     {
+            //         frame.data[i * 4 + 3] = 0;
+            //         //console.log("true");
+            //     }
+            // }
+            // ctx.putImageData(frame,0,0);
+            requestAnimationFrame(playvid);
+        }
+    }
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'red';
+    // ctx.fillStyle = 'red';
+    // ctx.stroke();
+    // ctx.fill();
+</script>

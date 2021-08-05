@@ -1,0 +1,112 @@
+body{
+    margin: 0;
+    background:black;
+    background-image: url('../imgs/stars.png'); 
+    background-size: contain; 
+    background-repeat: repeat; 
+    animation: stars 75s linear infinite; 
+}
+.ui{
+    color: white;
+    position: fixed;
+}
+#life{
+    color: red;
+}
+#thunder{
+    color: royalblue;
+}
+.hl{
+    border-bottom:5px solid;    
+}
+.vl{
+    border-left: 5px solid;
+}
+.vlp{
+    padding-left: 12%;
+}
+.vlp2{
+    padding-left: 1%;
+}
+.linked{
+    border-color: yellow;
+}
+.not-linked{
+    border-color: grey;
+}
+
+#btn{
+    background-color: skyblue;
+    width: 75%;
+    border-radius: 25px;
+}
+#canvas{
+     background: black;
+    background-image: url('../imgs/stars.png');
+    background-size: contain; 
+    background-repeat: repeat;
+    animation: stars 75s linear infinite; 
+}
+@keyframes stars {
+    0%{background-position: 0 0;}
+    100%{background-position: -1500px 0;} 
+}
+
+.shop{
+    border: 5px solid rgb(223, 209, 22) ;
+    width: auto;
+    height: auto;
+    margin: 1%;
+    margin-bottom: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: url('../imgs/shop-bg.jpg');
+    background-size: contain;
+}
+.side-nav a{
+    color: white;
+}
+.card{
+    width: auto;
+    height: auto;
+    overflow: hidden;
+} 
+.card-body{
+    padding-top: 10px;
+}
+.card-img-top{
+    background-color: black;
+    /* height: 100px; */
+    padding: 10px;
+    height: 12vw;
+    width: 100%;
+    object-fit:contain;
+    overflow: hidden;
+}  
+.card-img-top:hover{
+    transform: scale(1.2);
+}
+.coin-img{
+    height: 25px;
+}
+.coin{
+    font-size: 15px;
+}
+.coins{
+    width: auto;
+    margin-top: 120%;;
+}
+.back-shop{
+    margin-top: 10px;
+    width: auto;
+}
+#progress::-moz-progress-bar {
+     background:yellow; 
+    }
+#progress::-webkit-progress-value { 
+    background: yellow;
+}
+progress{
+    height: 4px;
+    width: 100%;
+}

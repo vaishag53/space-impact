@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Space Impact</title>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="init()">
+    <!--After gome over modal-->
+    <div  id="over" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-sm text-center" role="content">
+			<div class="modal-content">
+                <div class="modal-body">
+                    <div class="mt-3">
+                        <span class="text-danger font-weight-bold">GAME OVER</span>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <span >Score : </span><span id='finalScore'>0</span>
+                    </div>  
+                    <div class="mt-3">
+                        <span class=""><img src="imgs/coin.png" height="20" width="20"> : </span><span id="finalCoin">0</span>
+                    </div>
+                    <div>
+                        <span><a class="badge badge-danger mt-3" href="game.html">&#8635;</a></span>
+                    </div>
+                    <div class="mt-3">
+                        <span><a href="index.html" class="mt-3  btn btn-warning">Back to Home</a></span>
+                    </div> 
+                </div>
+	        </div>
+		</div>
+	</div>
+    <!--Skills Modal-->
+    <div  id="skills" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-lg text-center" role="content">
+			<div class="modal-content">
+                <!-- <div class="modal-header text">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
+                <div class="modal-body"  style="background-image: url('imgs/shop-bg.jpg');">
+                    <span class="badge badge-info badge-pill p-3 m-3">Skills points available <span id="skillPoints">0</span> </span>
+                    <div id="tree" class="row pt-4">
+                        <div class="col-6 pr-0" >
+                            <div class="row">
+                                <div class="col-3 pr-0 mr-0">
+                                    <button class="btn btn-dark" data-toggle="tooltip" title="upgrade the invisible time by 2" id="inv-lv-1" onclick="skillUpgrade('inv-lv-1','invisibleTime',1)"><i class=" fal fa-starfighter"></i></button>
+                                </div>
+                                <div class="col-2 p-0 m-0">
+                                    <div class="pt-3 hl not-linked"></div>
+                                </div>
+                                <div class="col-3 pl-0 ml-0">
+                                    <button class="btn btn-dark ml-0" id="frz-lv-1" data-toggle="tooltip" title="upgrade the freeze time by 2" onclick="skillUpgrade('frz-lv-1','freezeTime',1)"><i class=" fas fa-snowflake"></i></button>
+                                </div>                                                                  
+                            </div>
+                            <div class="row p-1">
+                                <div class="col-3  vlp">
+                                    <div class="vl p-4 not-linked"></div>
+                                </div>
+                                <div class="col-3 pl-5">
+                                    <div class="vl"></div>
+                                </div>
+                                <div class="col-3 vlp2">
+                                    <div class="vl p-4 not-linked"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 pr-0 mr-0">
+                                    <button class="btn btn-dark" id="inv-lv-2" data-toggle="tooltip" title="upgrade the invisible time by 4" onclick="skillUpgrade('inv-lv-2','invisibleTime',2)"><i class=" fas fa-starfighter"></i></button>
+                                </div>
+                                <div class="col-2 p-0 m-0">
+                                    <div class="pt-3"></div>
+                                </div>
+                                <div class="col-3 pl-0 ml-0">
+                                    <button class="btn btn-dark ml-0" id="frz-lv-2" data-toggle="tooltip" title="upgrade the freeze time by 4" onclick="skillUpgrade('frz-lv-2','freezeTime',2)"><i class=" fal fa-snowflakes"></i></button>
+                                </div>
+                            </div>
+                            <div class="row p-1">
+                                <div class="col-3  vlp">
+                                    <div class="vl p-4 not-linked"></div>
+                                </div>
+                                <div class="col-3 pl-5">
+                                    <div class="vl"></div>
+                                </div>
+                                <div class="col-3 vlp2">
+                                    <div class="vl"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 pr-0 mr-0">
+                                    <button class="btn btn-dark" id="shd-lv-1" data-toggle="tooltip" title="upgrade the shield time by 2" onclick="skillUpgrade('shd-lv-1','shieldTime',2)"><i class=" fad fa-shield-alt"></i></button>
+                                </div>
+                                <div class="col-2 p-0 m-0">
+                                    <div class="pt-3 hl not-linked"></div>
+                                </div>
+                                <div class="col-3 pl-0 ml-0">
+                                    <button class="btn btn-dark ml-0" id="shd-lv-2" data-toggle="tooltip" title="upgrade the shield time by 4" onclick="skillUpgrade('shd-lv-2','shieldTime',3)"><i class=" fas fa-shield-alt"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 pl-0" >
+                            <div class="row">
+                                <div class="col-3 pr-0 mr-0">
+                                    <button class="btn btn-dark" id="ful-lv-1" data-toggle="tooltip" title="Reduce the fuel consumption by 30%" onclick="skillUpgrade('ful-lv-1','fuelConsumption',2)"><i class=" fal fa-gas-pump"></i></button>
+                                </div>
+                                <div class="col-2 p-0 m-0">
+                                    <div class="pt-3 hl not-linked"></div>
+                                </div>
+                                <div class="col-3 pl-0 ml-0">
+                                    <button class="btn btn-dark ml-0" id="con-lv-1" data-toggle="tooltip" title="Increase the coin value by x2" onclick="skillUpgrade('con-lv-1','coinUpgrade',2)"><i class=" fal fa-coin"></i></button>
+                                </div>                                                                  
+                            </div>
+                            <div class="row p-1">
+                                <div class="col-3  vlp">
+                                    <div class="vl p-4 not-linked"></div>
+                                </div>
+                                <div class="col-3 pl-5">
+                                    <div class="vl"></div>
+                                </div>
+                                <div class="col-3 vlp2">
+                                    <div class="vl p-4 not-linked"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 pr-0 mr-0">
+                                    <button class="btn btn-dark" id="ful-lv-2" data-toggle="tooltip" title="Reduce the fuel consumption by 60%" onclick="skillUpgrade('ful-lv-2','fuelConsumption',4)"><i class=" fas fa-gas-pump"></i></button>
+                                </div>
+                                <div class="col-2 p-0 m-0">
+                                    <div class="pt-3"></div>
+                                </div>
+                                <div class="col-3 pl-0 ml-0">
+                                    <button class="btn btn-dark ml-0" id="con-lv-2" data-toggle="tooltip" title="Increase the coin value by x3" onclick="skillUpgrade('con-lv-2','coinUpgrade',4)"><i class=" fal fa-coins"></i></button>
+                                </div>
+                            </div>
+                            <div class="row p-1">
+                                <div class="col-3  vlp">
+                                    <div class="vl"></div>
+                                </div>
+                                <div class="col-3 pl-5">
+                                    <div class="vl"></div>
+                                </div>
+                                <div class="col-3 vlp2">
+                                    <div class="vl p-4 not-linked"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 pr-0 mr-0">
+                                    <button class="btn btn-dark" id="rev-lv-2" data-toggle="tooltip" title="Reverse time by 15 sec" onclick="skillUpgrade('rev-lv-2','reverseTime',4)"><i class=" fas fa-jedi"></i></button>
+                                </div>
+                                <div class="col-2 p-0 m-0">
+                                    <div class="pt-3 hl not-linked"></div>
+                                </div>
+                                <div class="col-3 pl-0 ml-0">
+                                    <button class="btn btn-dark ml-0" id="rev-lv-1" data-toggle="tooltip" title="Reverse time by 10 sec" onclick="skillUpgrade('rev-lv-1','reverseTime',5)"><i class=" fal fa-jedi"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- <ul class="tree">
+                            <li>
+                                <ul class=""> 
+                                    <li><button class="btn btn-dark"><i class=" fa fa-starfighter"></i></button></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="">
+                                    <li><button class="btn btn-dark"><i class=" fa fa-coin "></i></button></li>
+                                    <li><button class="btn btn-dark"><i class=" fa fa-coins"></i></button></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="">
+                                    <li><button class="btn btn-dark"><i class=" fal fa-atom "></i></button></li>
+                                    <li><button class="btn btn-dark"><i class=" fa fa-coins"></i></button></li>
+                                </ul>
+                            </li>
+                        </ul> -->
+                </div>
+	        </div>
+		</div>
+	</div>
+    <div id="failure" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-dialog-centered modal-sm" role="content">
+			<div class="modal-content ">
+	            <div class="modal-header" >
+	                <h6 class="modal-title">Not Enough skill points</h6>
+	            </div>
+	        </div>
+		</div>
+	</div>
+    <div id="skillAcquired" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-dialog modal-sm" role="content">
+			<div class="modal-content ">
+	            <div class="modal-header" >
+	                <h6 class="modal-title">Skill Point acquired</h6>
+	            </div>
+	        </div>
+		</div>
+	</div>
+    <div class= "ui">
+        <span>Score: </span>
+        <span id = 'score'>0</span>
+        <div>
+            <span id="thunder">&#128498;</span>
+            <span id="beam">0</span>
+            <span class=""><img src="imgs/abil-1.png" height="20" width="20"></span>
+            <span id="shield">0</span>
+            <span class=""><img src="imgs/abil-3.png" height="20" width="20"></span>
+            <span id="invisible">0</span>
+            <span class=""><img src="imgs/abil-4.png" height="20" width="20"></span>
+            <span id="freeze">0</span>
+            <span class=""><img src="imgs/nuke.png" height="20" width="20"></span>
+            <span id="bomb">0</span>
+        </div>
+        <div id="life"></div>
+        <div><span><img src="imgs/coin.png" height="20" width="20"></span><span id=coin>0</span> </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="pl-3"><span class="fas fa-cog"></span></div>
+                <progress id="progress" class="bg-warning" value="10" max="100"></progress>
+            </div>
+            <div class="col-6">
+                <span class="fal fa-gas-pump"></span><progress id="fuel" class="bg-success" value="100" max="100"></progress>
+            </div>
+            
+        </div>
+        
+    </div>
+    <video src="vid/refuel-1.mp4" id="fueling"  hidden></video>   
+    <canvas id="canvas"></canvas>
+    <script src="js/pop.js"></script>
+    <script src="js/jq.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
